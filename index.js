@@ -1,4 +1,5 @@
 const express = require('express')
+require("dotenv").config()
 
 // Get routes to the variabel
 const router = require('./src/routes')

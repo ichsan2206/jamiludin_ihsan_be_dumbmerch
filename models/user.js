@@ -9,12 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      // user.hasOne(models.profile, {
-      //   as: "profile",
-      //   foreignKey: {
-      //     name: "idUser",
-      //   },
-      // });
+      
+      user.hasOne(models.profile, {
+        as: "profile",
+        foreignKey: {
+          name: "idUser",
+        },
+      });
 
       //hasMany to product model
       // user.hasMany(models.product, {
