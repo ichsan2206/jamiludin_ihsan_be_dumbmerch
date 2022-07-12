@@ -10,7 +10,7 @@ const {auth} = require("../midleware/auth")
 // Controller Import
 const {getUsers, register, login, deleteUser, updateUser, getUser} = require("../controlers/user");
 const {getProduct, addProduct, detailProduct, updateProduct, deleteProduct} = require("../controlers/product");
-const {addTransaction } = require("../controlers/transaction");
+const {addTransaction, getTransactions } = require("../controlers/transaction");
 const { addCategory, getCategorys, getCategory, deleteCategory, updateCategory } = require("../controlers/category");
 
 // router User
@@ -39,6 +39,7 @@ router.patch("/Category/:id", auth, updateCategory);
 
 //router Transaction
 router.post("/Transaction", auth, addTransaction);
+router.get("/Transaction", auth, getTransactions);
 
 
 module.exports = router;
