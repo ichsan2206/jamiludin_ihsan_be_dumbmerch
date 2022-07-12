@@ -1,4 +1,4 @@
-// import joi validate package
+// import package
 const Joi = require("joi")
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
@@ -47,6 +47,10 @@ const newUser = await user.create({
         password: hashedPassword,
         status: "custommer",
     })
+
+ await profile.create({
+  idUser: newUser.id
+})
 
 // Create Token
 const token =jwt.sign({id: newUser.id}, process.env.TOKEN_KEY)

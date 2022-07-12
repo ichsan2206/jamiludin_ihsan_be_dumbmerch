@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      
       user.hasOne(models.profile, {
         as: "profile",
         foreignKey: {
@@ -18,26 +17,26 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       //hasMany to product model
-      // user.hasMany(models.product, {
-      //   as: "products",
-      //   foreignKey: {
-      //     name: "idUser",
-      //   },
-      // });
+      user.hasMany(models.product, {
+        as: "products",
+        foreignKey: {
+          name: "idUser",
+        },
+      });
 
       //hasMany association to transaction model
-      // user.hasMany(models.transaction, {
-      //   as: "buyerTransactions",
-      //   foreignKey: {
-      //     name: "idBuyer",
-      //   },
-      // });
-      // user.hasMany(models.transaction, {
-      //   as: "sellerTransactions",
-      //   foreignKey: {
-      //     name: "idSeller",
-      //   },
-      // });
+      user.hasMany(models.transaction, {
+        as: "buyerTransactions",
+        foreignKey: {
+          name: "idBuyer",
+        },
+      });
+      user.hasMany(models.transaction, {
+        as: "sellerTransactions",
+        foreignKey: {
+          name: "idSeller",
+        },
+      });
     }
   }
   user.init(
