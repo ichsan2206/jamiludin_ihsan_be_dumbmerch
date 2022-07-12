@@ -11,6 +11,7 @@ const {auth} = require("../midleware/auth")
 const {getUsers, register, login, deleteUser, updateUser, getUser} = require("../controlers/user");
 const {getProduct, addProduct, detailProduct, updateProduct, deleteProduct} = require("../controlers/product");
 const {addTransaction } = require("../controlers/transaction");
+const { addCategory, getCategorys, getCategory, deleteCategory, updateCategory } = require("../controlers/category");
 
 // router User
 router.get("/User", getUsers);
@@ -27,7 +28,17 @@ router.get("/Product/:id", auth, detailProduct);
 router.delete("/Product/:id", auth, deleteProduct)
 router.patch("/Product/:id",  auth, uploadFile("image"), updateProduct);
 
+//router Category
+router.post("/Category", auth, addCategory);
+router.get("/Category", auth, getCategorys);
+router.get("/Category/:id", auth, getCategory);
+router.delete("/Category/:id", auth, deleteCategory);
+router.patch("/Category/:id", auth, updateCategory);
+
+
+
 //router Transaction
 router.post("/Transaction", auth, addTransaction);
+
 
 module.exports = router;
